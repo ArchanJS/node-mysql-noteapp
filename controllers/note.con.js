@@ -33,20 +33,17 @@ exports.getNoteByPk=async(req,res)=>{
     }
 }
 
-exports.updateByPk=async(req,res)=>{
+exports.updateNote=async(req,res)=>{
     try {
-        let obj={};
-        if(req.body.title&&req.body.title.trim()) obj.title=req.body.title;
-        if(req.body.description&&req.body.description.trim()) obj.description=req.body.description;
-        await Note.update(obj,{where:{id:req.params.pk}});
-        res.status(200).json({message:"Note updated!"});
+        await Note.update(req.data,{where:{id:req.params.pk}});
+        res.status(200).json({message:"Updation successful!"});
     } catch (error) {
         console.log(error);
         res.status(500).json({error:"Something went wrong!"});
     }
 }
 
-exports.deleteByPk=async(req,res)=>{
+exports.deleteNote=async(req,res)=>{
     try {
         await Note.destroy({where:{id:req.params.pk}});
         res.status(200).json({message:"Note deleted!"});
