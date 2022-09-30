@@ -9,6 +9,7 @@ app.use(cors());
 
 require('./models/index');
 require('./routes/note.rou')(app);
+require('./routes/user.rou')(app);
 const port=process.env.PORT || 8000;
 
 app.listen(port,()=>{

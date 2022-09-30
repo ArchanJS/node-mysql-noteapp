@@ -18,5 +18,6 @@ const db={
     sequelize
 };
 db.notes=require('./Note')(sequelize,DataTypes);
+db.users=require('./User')(sequelize,DataTypes);
 db.sequelize.sync().then(()=>console.log("Sync successful!"));
 module.exports=db;
