@@ -5,6 +5,10 @@ module.exports=(sequelize,DataTypes)=>{
             primaryKey:true,
             autoIncrement:true
         },
+        verified:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:false
+        },
         username:DataTypes.STRING,
         email:DataTypes.STRING,
         password:DataTypes.STRING
